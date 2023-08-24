@@ -70,7 +70,7 @@ class jeedom_com():
 				logging.error('Error on send request to jeedom, return code %i', r.status_code)
 			dt = datetime.datetime.now() - start_time
 			ms = (dt.days * 24 * 60 * 60 + dt.seconds) * 1000 + dt.microseconds / 1000.0
-			timer_duration = self.cycle - ms
+			timer_duration = self.cycle - (ms / 1000)
 			if timer_duration < 0.1 :
 				timer_duration = 0.1
 			if timer_duration > self.cycle:
